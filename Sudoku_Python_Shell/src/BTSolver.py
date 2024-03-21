@@ -35,7 +35,7 @@ class BTSolver:
         return True
 
     """
-        Part 1 TODO: Implement the Forward Checking Heuristic
+        Forward Checking Heuristic
 
         This function will do both Constraint Propagation and check
         the consistency of the network
@@ -43,7 +43,6 @@ class BTSolver:
         (1) If a variable is assigned then eliminate that value from
             the square's neighbors.
 
-        Note: remember to trail.push variables before you assign them
         Return: a tuple of a dictionary and a bool. The dictionary contains all MODIFIED variables, mapped to their MODIFIED domain.
                 The bool is true if assignment is consistent, false otherwise.
     """
@@ -94,7 +93,7 @@ class BTSolver:
     
     
     """
-        Part 2 TODO: Implement both of Norvig's Heuristics
+        Norvig's Heuristics
 
         This function will do both Constraint Propagation and check
         the consistency of the network
@@ -105,9 +104,8 @@ class BTSolver:
         (2) If a constraint has only one possible place for a value
             then put the value there.
 
-        Note: remember to trail.push variables before you assign them
         Return: a pair of a dictionary and a bool. The dictionary contains all variables 
-		        that were ASSIGNED during the whole NorvigCheck propagation, and mapped to the values that they were assigned.
+		        that were asssigned during the whole NorvigCheck propagation, and mapped to the values that they were assigned.
                 The bool is true if assignment is consistent, false otherwise.
     """
     def norvigCheck ( self ):
@@ -156,10 +154,7 @@ class BTSolver:
 
 
     """
-         Optional TODO: Implement your own advanced Constraint Propagation
-
-         Completing the three tourn heuristic will automatically enter
-         your program into a tournament.
+        Advanced Constraint Propagation
      """
     def getTournCC ( self ):
         return False
@@ -178,7 +173,7 @@ class BTSolver:
         return None
 
     """
-        Part 1 TODO: Implement the Minimum Remaining Value Heuristic
+        Minimum Remaining Value Heuristic
 
         Return: The unassigned variable with the smallest domain
     """
@@ -198,8 +193,7 @@ class BTSolver:
 
 
     """
-        Part 2 TODO: Implement the Minimum Remaining Value Heuristic
-                       with Degree Heuristic as a Tie Breaker
+        Minimum Remaining Value Heuristic with Degree Heuristic as a Tie Breaker
 
         Return: The unassigned variable with the smallest domain and affecting the  most unassigned neighbors.
                 If there are multiple variables that have the same smallest domain with the same number of unassigned neighbors, add them to the list of Variables.
@@ -233,11 +227,9 @@ class BTSolver:
         return finalList
 
     """
-         Optional TODO: Implement your own advanced Variable Heuristic
+        Advanced Variable Heuristic
 
-         Completing the three tourn heuristic will automatically enter
-         your program into a tournament.
-     """
+    """
     def getTournVar ( self ):
         return None
 
@@ -251,10 +243,9 @@ class BTSolver:
         return sorted( values )
 
     """
-        Part 1 TODO: Implement the Least Constraining Value Heuristic
+        Least Constraining Value Heuristic
 
-        The Least constraining value is the one that will knock the least
-        values out of it's neighbors domain.
+        Knocks out the least values out of it's neighbors domain.
 
         Return: A list of v's domain sorted by the LCV heuristic
                 The LCV is first and the MCV is last
@@ -289,9 +280,6 @@ class BTSolver:
         sorted(list_zip, key=lambda x: x[1])
         
         to_return = [tup[0] for tup in list_zip]
-        # print("First: ")
-        # print(to_return)
-        # return to_return
             
         for value in v.getDomain().values:  # hypothetically pick value
             neighborsDomainSize = 0
@@ -332,10 +320,9 @@ class BTSolver:
         # return storage_list
 
     """
-         Optional TODO: Implement your own advanced Value Heuristic
+    
+        Advanced Value Heuristic
 
-         Completing the three tourn heuristic will automatically enter
-         your program into a tournament.
      """
     def getTournVal ( self, v ):
         return None
